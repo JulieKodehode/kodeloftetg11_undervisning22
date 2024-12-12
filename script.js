@@ -1,6 +1,6 @@
 // Loop trough an array
 
-console.log("--- EKSEMPEL 1 ---")
+console.log("--- EKSEMPEL 1: ARRAY ---")
 const data = [
   {
     fact: "Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.",
@@ -43,24 +43,21 @@ const data = [
     length: 278,
   },
 ];
-console.log(data);
-console.log(data[5].fact);
 
 // Oppgave:
 // 1: Se på variable 'data' og identifiser hva den inneholder.
+  // Svar: Variable data contains a array with objects.
 // 2: Skriv en consol.log ut resultatet som gir teksten "Cats make about 100 different sounds. Dogs make only about 10."
+  console.log(data[5].fact);
 
 // Bonus oppgave:
 // 1. Lag en 'for loop' som gir ut alle fact resultatene
-
 for (let index = 0; index < data.length; index++) {
   console.log(data[index].fact);
 };
 
 //
 //
-
-console.log("--- EKSEMPEL 2 ---")
 
 function timeout() {
   console.log("Noe kommer til å skje!");
@@ -75,8 +72,6 @@ timeout();
 //
 //
 
-console.log("--- EKSEMPEL 3 ---")
-
 async function fetchFile() {
   const dataFile = await fetch("data.json");
   console.log(dataFile);
@@ -86,27 +81,26 @@ async function fetchFile() {
 
   // Oppgave:
   // 1. Lag en 'for loop' som går gjennom variable response og viser alle fact
-
+  for (let index = 0; index < response.length; index++) {
+    console.log(response[index].fact);
+  };
   // Bonus oppgave:
   // 1. Svar på oppgave 1 med en annen loop metode.
 };
 
 fetchFile();
 
-console.log("--- EKSEMPEL 4 ---")
+async function fetchAPI() {
+  const data = await fetch("https://catfact.ninja/facts");
+  console.log(data);
 
-async function fetchFile() {
-  const dataFile = await fetch("https://catfact.ninja/facts");
-  console.log(dataFile);
+  const response = await data.json();
+  console.log(response);
+  console.log(response.data[5].fact);
 
-  const response = await dataFile.json();
-  console.log(response[5].fact);
-
-  // Oppgave:
-  // 1. Lag en 'for loop' som går gjennom variable response og viser alle fact
-
-  // Bonus oppgave:
-  // 1. Svar på oppgave 1 med en annen loop metode.
+  for (let index = 0; index < response.data.length; index++) {
+    console.log(response.data[index].fact);
+  };
 };
 
-fetchFile();
+fetchAPI();
