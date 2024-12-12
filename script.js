@@ -1,5 +1,6 @@
 // Loop trough an array
 
+console.log("--- EKSEMPEL 1 ---")
 const data = [
   {
     fact: "Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.",
@@ -42,6 +43,8 @@ const data = [
     length: 278,
   },
 ];
+console.log(data);
+console.log(data[5].fact);
 
 // Oppgave:
 // 1: Se på variable 'data' og identifiser hva den inneholder.
@@ -49,3 +52,61 @@ const data = [
 
 // Bonus oppgave:
 // 1. Lag en 'for loop' som gir ut alle fact resultatene
+
+for (let index = 0; index < data.length; index++) {
+  console.log(data[index].fact);
+};
+
+//
+//
+
+console.log("--- EKSEMPEL 2 ---")
+
+function timeout() {
+  console.log("Noe kommer til å skje!");
+
+  setTimeout(function () {
+    console.log("Nå har det skjedd!")
+  }, 3000);
+};
+
+timeout();
+
+//
+//
+
+console.log("--- EKSEMPEL 3 ---")
+
+async function fetchFile() {
+  const dataFile = await fetch("data.json");
+  console.log(dataFile);
+
+  const response = await dataFile.json();
+  console.log(response[5].fact);
+
+  // Oppgave:
+  // 1. Lag en 'for loop' som går gjennom variable response og viser alle fact
+
+  // Bonus oppgave:
+  // 1. Svar på oppgave 1 med en annen loop metode.
+};
+
+fetchFile();
+
+console.log("--- EKSEMPEL 4 ---")
+
+async function fetchFile() {
+  const dataFile = await fetch("https://catfact.ninja/facts");
+  console.log(dataFile);
+
+  const response = await dataFile.json();
+  console.log(response[5].fact);
+
+  // Oppgave:
+  // 1. Lag en 'for loop' som går gjennom variable response og viser alle fact
+
+  // Bonus oppgave:
+  // 1. Svar på oppgave 1 med en annen loop metode.
+};
+
+fetchFile();
